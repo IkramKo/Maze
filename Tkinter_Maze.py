@@ -1,6 +1,7 @@
 from tkinter import *
 from os import system
 from random import randint
+import random
 system("cls")
 
 
@@ -101,8 +102,11 @@ walls.append([3, 1])
 print(len(walls))
 print(len(walls[0]))
 
-
-
+print(walls[1][0]) # expected 1
+walls.remove([1, 1]) 
+print(walls[1][0]) # expected: 2
+# curr_row = randint(0, len(neighbors) - 1)
+# curr_column = randint(0, len(neighbors[0]) - 1)
 
 """
 Hall of shame (deleted functions)
