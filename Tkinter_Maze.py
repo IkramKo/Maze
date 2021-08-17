@@ -4,7 +4,7 @@ from random import randint
 import random
 system("cls")
 
-
+"""just a test to see if git bash is faulty"""
 """
     1. Init all cells to walls
     2. Implement Prim's algo to generate navigable cells
@@ -14,7 +14,7 @@ system("cls")
     and to modify the color of an existing canvas object, i need its id/var name. Simpler to create the maze in the cell_map first and 
     draw last.
 """
-"""
+
 # Init maze with walls
 cell_size = 15
 maze_size = 50 # height = width
@@ -28,11 +28,13 @@ cell_map = [['wall' for row in range(maze_size)] for column in range(maze_size)]
 #    N4  CURR_CELL   N2
 #            N1
 """
+# Once a neighbor is chosen as the current cell, its index should be removed from the array. Cool that python arrays behave like lists.
+# That way, no reason to check if neighbor is wall to add it. 
 # Verify and add neighboring wall cells that arent on the edge
 def check_neighbors(row, column, neighbors):
     if row == 1 and column == 1:
         # Append([0, 1]) adds [0, 1] as a row, Extend([0, 1]) adds 0, 1 to the array (stays 1D)
-        if cell_map[row + 1, column] == 'wall'
+        if cell_map[row + 1, column] == 'wall':
             neighbors.append([row + 1, column]) # N1
         neighbors.append([row, column + 1]) # N2
     elif row == 1 and column != 1:
@@ -77,7 +79,7 @@ def draw_maze():
 # Init array that will keep track of neighboring walls
 neighbors = []
 check_neighbors(starting_row, starting_column, neighbors)
-while
+
 
 print(neighbors)
 
@@ -92,7 +94,17 @@ maze.pack()
 
 draw_maze()
 window.mainloop()
+
+
 """
+Hall of shame (deleted functions)
+
+def maze_init():
+    for row in range(maze_size):
+        for column in range(maze_size):
+            cell_map[row][column] = 'wall'
+            draw_cell(row, column, 'black') # Walls are black, the path is white.
+
 
 walls = []
 walls.append([0, 1])
@@ -105,15 +117,9 @@ print(len(walls[0]))
 print(walls[1][0]) # expected 1
 walls.remove([1, 1]) 
 print(walls[1][0]) # expected: 2
+ 
+
 # curr_row = randint(0, len(neighbors) - 1)
 # curr_column = randint(0, len(neighbors[0]) - 1)
 
-"""
-Hall of shame (deleted functions)
-
-def maze_init():
-    for row in range(maze_size):
-        for column in range(maze_size):
-            cell_map[row][column] = 'wall'
-            draw_cell(row, column, 'black') # Walls are black, the path is white.
 """
